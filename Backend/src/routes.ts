@@ -30,7 +30,7 @@ routes.post("/classes", async (request, response) => {
 
   const class_id = insertedClassesIds[0];
 
-  const clasSchedule = schedule.map((scheduleItem: ScheduleItem) => {
+  const classSchedule = schedule.map((scheduleItem: ScheduleItem) => {
     return {
       class_id,
       week_day: scheduleItem.week_day,
@@ -39,7 +39,7 @@ routes.post("/classes", async (request, response) => {
     };
   });
 
-  await db('class_schedule').insert(clasSchedule);
+  await db('class_schedule').insert(classSchedule);
 
   return response.send();
 });

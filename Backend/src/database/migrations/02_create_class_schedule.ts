@@ -19,5 +19,5 @@ export async function up(knex: Knex) {
 }
 
 export async function down(knex: Knex) {
-  return knex.schema.dropTable("useclass_schedulers");
+  return knex.schema.dropTable("class_schedule");
 }

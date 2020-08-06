@@ -1,5 +1,6 @@
 import express from "express";
 import db from "./database/connection";
+import convertHourToMinutes from "./utils/convertHourToMinutes";
 
 const routes = express.Router();
 
@@ -28,12 +29,17 @@ routes.post("/classes", async (request, response) => {
   });
 
   const class_id = insertedClassesIds[0];
+
   const clasSchedule = schedule.map((scheduleItem: ScheduleItem) => {
     return {
+      class_id,
       week_day: scheduleItem.week_day,
-      from:
+      from: convertHourToMinutes(scheduleItem.from),
+      to: convertHourToMinutes(scheduleItem.to),
     };
   });
+
+  await db('class_schedule').insert(clasSchedule);
 
   return response.send();
 });

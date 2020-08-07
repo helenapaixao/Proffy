@@ -28,6 +28,7 @@
   font-weight: 500;
   font-size: 2.4rem;
   line-height: 4.6rem;
+  text-align: left ;
   margin-top: 0.8rem;
 }
 
@@ -77,6 +78,10 @@
 
 .buttons-container a.give-classes :hover {
   background: var(--color-secundary-dark);
+}
+
+.buttons-container a img {
+   margin-right: 2.4em; 
 }
 
 .total-connections {

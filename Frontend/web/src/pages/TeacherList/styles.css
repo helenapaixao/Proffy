@@ -50,4 +50,16 @@
   #page-teacher-list {
     max-width: 100%;
   }
+
+  #search-teachers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+    position: absolute;
+    bottom: -28px;
+  }
+
+  #search-teachers .input-block + .input-block {
+      margin-top: 0;
+  }
 }

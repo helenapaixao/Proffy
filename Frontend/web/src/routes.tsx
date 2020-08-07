@@ -9,7 +9,7 @@ function Routes() {
     <BrowserRouter>
       <Route path="/" exact component={Landing} />
       <Route path="/study" exact component={TeacherList} />
-      <Route path="/" exact component={TeacherForm} />
+      <Route path="/give-classes" exact component={TeacherForm} />
     </BrowserRouter>
   );
 }

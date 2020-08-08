@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Header from "../../components/PageHeader";
 import "./styles.css";
 import Input from "../../components/Input";
@@ -7,22 +7,25 @@ import Textarea from "../../components/Textarea";
 import Select from "../../components/Select";
 
 function TeacherForm() {
-const [scheduleItems,setScheduleItems] = useState([
-  { week_day: 0, from: "", to: "" },
-])
+  const [name, setName] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+  const [bio, setBio] = useState('');
 
+  const [subject,setSubject] = useState('');
+  const [cost, setCost] = useState('');
 
+  const [scheduleItems, setScheduleItems] = useState([{ week_day: 0, from: "", to: "" }]);
 
   function addNewScheduleItem() {
     setScheduleItems([
       ...scheduleItems,
       {
-        week_day:0,
-        from:'',
-        to:'',
-      }
+        week_day: 0,
+        from: "",
+        to: "",
+      },
     ]);
-
   }
 
   return (
@@ -34,10 +37,38 @@ const [scheduleItems,setScheduleItems] = useState([
       <main>
         <fieldset>
           <legend>Seus dados</legend>
-          <Input name="name" label="Nome Completo" />
-          <Input name="avatar" label="Avatar" />
-          <Input name="whatsapp" label="Whatsapp" />
-          <Textarea name="bio" label="Biografia" />
+          <Input
+            name="name"
+            label="Nome Completo"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <Input
+            name="avatar"
+            label="Avatar"
+            value={avatar}
+            onChange={(e) => {
+              setAvatar(e.target.value);
+            }}
+          />
+          <Input
+            name="whatsapp"
+            label="Whatsapp"
+            value={whatsapp}
+            onChange={(e) => {
+              setWhatsapp(e.target.value);
+            }}
+          />
+          <Textarea
+            name="bio"
+            label="Biografia"
+            value={bio}
+            onChange={(e) => {
+              setBio(e.target.value);
+            }}
+          />
         </fieldset>
         <fieldset>
           <legend>Sobre a aula</legend>
@@ -65,7 +96,7 @@ const [scheduleItems,setScheduleItems] = useState([
           </legend>
           {scheduleItems.map((scheduleItem) => {
             return (
-              <div  key={scheduleItem.week_day} className="schedule-item">
+              <div key={scheduleItem.week_day} className="schedule-item">
                 <Select
                   name="week_day"
                   label="Dia da semana"

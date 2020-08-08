@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "../../components/PageHeader";
 import "./styles.css";
 import Input from "../../components/Input";
@@ -7,13 +7,22 @@ import Textarea from "../../components/Textarea";
 import Select from "../../components/Select";
 
 function TeacherForm() {
-  const scheduleItems = [
-    { week_day: 0, from: "8:00 AM", to: "16:00 PM" },
-    { week_day: 0, from: "8:00 AM", to: "16:00 PM" },
-  ];
+const [scheduleItems,setScheduleItems] = useState([
+  { week_day: 0, from: "", to: "" },
+])
+
+
 
   function addNewScheduleItem() {
-    console.log("teste");
+    setScheduleItems([
+      ...scheduleItems,
+      {
+        week_day:0,
+        from:'',
+        to:'',
+      }
+    ]);
+
   }
 
   return (
@@ -56,7 +65,7 @@ function TeacherForm() {
           </legend>
           {scheduleItems.map((scheduleItem) => {
             return (
-              <div className="schedule-item">
+              <div  key={scheduleItem.week_day} className="schedule-item">
                 <Select
                   name="week_day"
                   label="Dia da semana"

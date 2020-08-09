@@ -7,6 +7,8 @@ import Select from '../../components/Select';
 import api from '../../services/api';
 
 import './styles.css'
+import TeacherItem, {Teacher} from '../../components/TeacherItem';
+
 
 
 function TeacherList(){
@@ -83,11 +85,12 @@ function TeacherList(){
                     </button>
                 </form>
             </PageHeader>
-           {/*  <main>
-                {teachers.map((teacher: Teacher) => {
-                    return <TeacherItem key={teacher.id} teacher={teacher}/>
-                })}
-            </main> */}
+            <main>
+                {teachers.map(((teacher :Teacher )=> {
+                  return <TeacherItem  key={teacher.id} teacher={teacher}/>
+                }
+                ))}
+            </main> 
         </div>
     )
 }
